@@ -17,7 +17,7 @@
 <script>
 L.mapbox.accessToken = 'pk.eyJ1IjoicmZyYW50eiIsImEiOiJkN2p1Wm93In0.uha-WxArw2jdGYmsvacXeA';
 var map = L.mapbox.map('map', 'mapbox.streets')
-    .setView([39.975815, -83.007306], 9);
+    .setView([39.975815, -83.007306], 16);
 </script>
 
 </body>
