@@ -33,21 +33,27 @@
     });
   });
       
-  var pictureGraphic = new Graphic({
-       geometry: {
-         type: "point",
-         x: 83.0184428,
-         y: 40.0284847
-       },
-       symbol: {
-         type: "picture-marker",
-         url: "https://developers.arcgis.com/labs/images/bluepin.png",
-         width: "14px",
-         height: "26px"
-       }
-     });
+  var point = {
+        type: "point",
+        longitude: -83.0184428,
+        latitude: 40.0284847
+      };
 
-     view.graphics.add(pictureGraphic);    
+      var simpleMarkerSymbol = {
+        type: "simple-marker",
+        color: [226, 119, 40],  // orange
+        outline: {
+          color: [255, 255, 255], // white
+          width: 1
+        }
+      };
+
+      var pointGraphic = new Graphic({
+        geometry: point,
+        symbol: simpleMarkerSymbol
+      });
+
+      view.graphics.add(pointGraphic);  
       
   </script>
   </head>
