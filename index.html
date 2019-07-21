@@ -18,11 +18,10 @@
     require([
       "esri/Map",
       "esri/views/MapView"
-      "esri/widgets/Locate"
-    ], function(Map, MapView, Locate) {
+    ], function(Map, MapView) {
 
     var map = new Map({
-      basemap: "light-gray-vector"
+      basemap: "topo-vector"
     });
 
     var view = new MapView({
