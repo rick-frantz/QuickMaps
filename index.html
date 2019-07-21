@@ -20,8 +20,9 @@
       "esri/views/MapView",
       "esri/Graphic",
       "esri/geometry/Point",
-      "esri/symbols/SimpleMarkerSymbol"
-    ], function(Map, MapView, Graphic, Point, SimpleMarkerSymbol) {
+      "esri/symbols/SimpleMarkerSymbol",
+      "esri/widgets/Locate"
+    ], function(Map, MapView, Graphic, Point, SimpleMarkerSymbol, Locate) {
 
     var map = new Map({
       basemap: "topo-vector"
@@ -55,7 +56,18 @@
         symbol: simpleMarkerSymbol
       });
 
-  view.graphics.add(pointGraphic);  
+  view.graphics.add(pointGraphic);
+      
+  var locate = new Locate({
+        view: view,
+        useHeadingEnabled: false,
+        goToOverride: function(view, options) {
+          options.target.scale = 1500;  // Override the default map scale
+          return view.goTo(options.target);
+        }
+      });
+
+      view.ui.add(locate, "top-left");
   });
   </script>
   </head>
