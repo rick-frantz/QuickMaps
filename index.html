@@ -27,10 +27,27 @@
     var view = new MapView({
       container: "viewDiv",
       map: map,
-      center: [-83.0047, 40.046592], // longitude, latitude
+      center: [-83.005, 40.046592], // longitude, latitude
       zoom: 15
     });
   });
+      
+  var pictureGraphic = new Graphic({
+       geometry: {
+         type: "point",
+         x: -118.31,
+         y: 34.182
+       },
+       symbol: {
+         type: "picture-marker",
+         url: "https://developers.arcgis.com/labs/images/bluepin.png",
+         width: "14px",
+         height: "26px"
+       }
+     });
+
+     view.graphics.add(pictureGraphic);    
+      
   </script>
   </head>
   <body>
