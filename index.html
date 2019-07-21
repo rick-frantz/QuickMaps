@@ -21,8 +21,9 @@
       "esri/Graphic",
       "esri/geometry/Point",
       "esri/symbols/SimpleMarkerSymbol",
-      "esri/widgets/Locate"
-    ], function(Map, MapView, Graphic, Point, SimpleMarkerSymbol, Locate) {
+      "esri/widgets/Locate",
+      "esri/widgets/Track"
+    ], function(Map, MapView, Graphic, Point, SimpleMarkerSymbol, Locate, Track) {
 
     var map = new Map({
       basemap: "topo-vector"
@@ -58,16 +59,23 @@
 
   view.graphics.add(pointGraphic);
       
-  var locate = new Locate({
+  var track = new Track({
         view: view,
-        useHeadingEnabled: false,
-        goToOverride: function(view, options) {
-          options.target.scale = 1500;  // Override the default map scale
-          return view.goTo(options.target);
-        }
+        graphic: new Graphic({
+          symbol: {
+            type: "simple-marker",
+            size: "12px",
+            color: "green",
+            outline: {
+              color: "#efefef",
+              width: "1.5px"
+            }
+          }
+        }),
+        useHeadingEnabled: false  // Don't change orientation of the map
       });
 
-  view.ui.add(locate, "top-left");
+  view.ui.add(track, "top-left");
   });
   </script>
   </head>
