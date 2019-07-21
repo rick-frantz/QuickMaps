@@ -18,7 +18,8 @@
     require([
       "esri/Map",
       "esri/views/MapView"
-    ], function(Map, MapView) {
+      "esri/Graphic"
+    ], function(Map, MapView, Graphic) {
 
     var map = new Map({
       basemap: "topo-vector"
@@ -35,8 +36,8 @@
   var pictureGraphic = new Graphic({
        geometry: {
          type: "point",
-         x: -118.31,
-         y: 34.182
+         x: 83.0184428,
+         y: 40.0284847
        },
        symbol: {
          type: "picture-marker",
